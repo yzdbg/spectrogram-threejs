@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spectrogram</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    } 
+    .controls {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    #overlay{
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10;
+            height: 100%;
+            width: 100%;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            border-radius: 10px;
+            transition: opacity 0.5s ease-in-out;
+            color: #009926; 
+        }
+        #logo{
+          position: absolute;
+            top:0;
+            left:0;
+            margin: 10px;
+            width: 3vh;
+            height: 3vh;
+        }
+        .demo{
+          width: 50%;
+          height: 50%;
+        }
+    </style>
+</head>
+<body class="bg-black">
+  <div id="Spectrogram"></div>
+    <main>
+        <script type="module"  src="main.js"></script>
+        <script type="x-shader/x-vertex" id="vertexshader">
+          attribute float displacement;
+          uniform vec3 vLut[256];
+          varying vec3 vColor;
+    void main(){
+          int index = int(displacement);
+          vColor = vLut[index];
+          vec3 newPosition = position + normal*displacement/15.5;
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition,1.0);
+    }  
+  </script>
+
+        <script type="x-shader/x-fragment" id="fragmentshader">
+          varying vec3 vColor;
+          void main(){
+            gl_FragColor = vec4(vColor,1.0);
+          }
+        </script>
+        <div title="Star me !" id="logo">
+          <a target="_blank" href="https://github.com/yzdbg/mandelbrotExplorer"><img src="./assets/gh.png" alt="Github logo"></a>
+          
+      </div>  
+        <div id="overlay">
+          <img class="demo pb-14" src="assets/spectrogram-demo.gif" alt="this slowpoke moves"   />
+
+     <div class="flex flex-col text-center">
+      Speak into the microphone to see your voice in the spectrogram!
+      <br>
+      Press space at any moment to pause the spectrogram.
+      Use the mouse to pan around
+      <button id="btn" class="mt-14 w-50 bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded">Got it !</button>
+ 
+     </div> </div>
+    </main>
+</body>
+</html>
