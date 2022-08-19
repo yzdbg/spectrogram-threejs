@@ -5,3 +5,13 @@ Made with threeJs using shaders.
 Play with it here [spectrogram-threejs.vercel.app ](https://spectrogram-threejs.vercel.app/)
 
 ![spectrogram gif](https://github.com/yzdbg/spectrogram-threejs/blob/master/assets/spectrogram-demo.gif?raw=true)
+
+# Quick start 
+
+Install packages and run locally.
+
+```bash
+yarn #install packages
+
+yarn dev #run local env
+```
