@@ -8,7 +8,7 @@ Play with it here [spectrogram-threejs.vercel.app ](https://spectrogram-threejs.
 
 ## Quick start 
 
-Install packages and run locally.
+Install packages and run locally. (node 16+ req)
 
 ```bash
 yarn #install packages
