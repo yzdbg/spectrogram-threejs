@@ -6,7 +6,7 @@ Play with it here [spectrogram-threejs.vercel.app ](https://spectrogram-threejs.
 
 ![spectrogram gif](https://github.com/yzdbg/spectrogram-threejs/blob/master/assets/spectrogram-demo.gif?raw=true)
 
-# Quick start 
+## Quick start 
 
 Install packages and run locally.
 
