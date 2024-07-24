@@ -1,9 +1,9 @@
----
-name: "\U0001F4A1 Feature Request"
-about: Create a new ticket for a new feature request
-title: ''
-labels: bug
-assignees: ''
+name: "💡 Feature Request"
+description: Create a new ticket for a new feature request
+title: "💡 [REQUEST] - <title>"
+labels: [
+  "enhancement"
+]
 body:
   - type: input
     id: concise_title
@@ -60,6 +60,11 @@ body:
       placeholder: Identify any unresolved issues.
     validations:
       required: false
----
-
-
+  - type: checkboxes
+    id: coc
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct]()
+      options:
+        - label: I follow [Contributing Guidelines](https://github.com/Anmol-Baranwal/Awesome-Illustrations-4Projects/blob/main/CONTRIBUTING.md) of this project.
+          required: true
